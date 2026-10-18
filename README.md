@@ -18,6 +18,7 @@ for them.
 | `detections/` | Detection rules by source: `unifi.xml`, `windows-sysmon.xml`, `windows-eventlog.xml` |
 | `tuning/` | Suppressions and benign labels by source: UniFi, Sysmon, Windows event log, syscheck and rootcheck, Docker, SCA |
 | `docs/detections/` | One page per detection: what it catches, why, MITRE ATT&CK, how to trigger it, false positives, tuning |
+| `docs/backlog.md` | Planned detections with priority, difficulty and research notes |
 | `tests/` | `run_cases.py` (the runner), `cases/<rule>.json` (test cases per rule), `logtest.py` (socket client), `replay.py` (replay recorded alerts), `harness.sh` (throwaway manager) |
 | `sysmon/` | The SwiftOnSecurity Sysmon configuration both agents run, with attribution and the apply procedure |
 
@@ -34,9 +35,6 @@ Rule ids: 100100 to 100199 are UniFi, 100200 to 100499 Windows tuning,
 | [100104](docs/detections/100104-unifi-firewall-block-burst.md) | 12 | 8+ blocks from one source in 60 s |
 | [100241](docs/detections/100241-kernel-driver-install.md) | 12 | Kernel mode driver installed |
 | [100500](docs/detections/100500-temp-drop-burst.md) | 15 | Burst of executables dropped in Temp by one process |
-
-Planned detections, with priority and difficulty, are in
-[docs/backlog.md](docs/backlog.md).
 
 ## Rule level convention
 

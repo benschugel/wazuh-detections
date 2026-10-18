@@ -49,7 +49,8 @@ Findings from 2026-10-18:
   noisy Edge updater rewrites at level 7 worth tuning separately) and Sysmon
   event 1. Stock has no `schtasks.exe` rule. The Sysmon event 1 group is
   `sysmon_event1` (no underscore before the 1).
-- Stock 0580-win-security has a 4698 rule.
+- Stock 0580-win-security has rule 60228 for 4698 at level 4; a child
+  rule hangs on it.
 
 Noise: Windows setup "SoftLanding" tasks are already handled by 100234;
 OneDrive, Edge and GPU vendor updaters create tasks on a schedule.
