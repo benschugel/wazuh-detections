@@ -1,6 +1,6 @@
 {
   "rule": "100500",
-  "title": "Burst of executables dropped in Temp by one process (level 15 summary on the tenth 92213 in 120 s)",
+  "title": "Burst of executables dropped in Temp by one process (level 15 summary on the tenth 92213 in 120 s). The writer is an untrusted image so no tuning rule takes the events out of the count",
   "cases": [
     {
       "name": "same guid x14",
@@ -15,8 +15,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib00.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib00.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -34,8 +34,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib01.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib01.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -53,8 +53,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib02.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib02.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -72,8 +72,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib03.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib03.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -91,8 +91,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib04.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib04.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -110,8 +110,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib05.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib05.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -129,8 +129,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib06.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib06.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -148,8 +148,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib07.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib07.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -167,8 +167,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib08.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib08.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -186,8 +186,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib09.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib09.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -205,8 +205,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib10.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib10.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -224,8 +224,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib11.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib11.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -243,8 +243,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib12.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib12.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -262,8 +262,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib13.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\lib13.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -291,7 +291,7 @@
       ],
       "summary": {
         "rule": "100500",
-        "must_contain": "gfx_win_101.7092.exe",
+        "must_contain": "setup.exe",
         "must_not_contain": "$("
       }
     },
@@ -308,8 +308,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a00.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a00.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -327,8 +327,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b00.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b00.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -346,8 +346,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a01.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a01.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -365,8 +365,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b01.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b01.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -384,8 +384,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a02.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a02.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -403,8 +403,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b02.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b02.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -422,8 +422,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a03.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a03.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -441,8 +441,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b03.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b03.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -460,8 +460,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a04.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a04.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -479,8 +479,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b04.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b04.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -498,8 +498,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a05.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a05.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -517,8 +517,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b05.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b05.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -536,8 +536,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a06.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\a06.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
@@ -555,8 +555,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b06.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\b06.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
               "processId": "8068",
@@ -1015,8 +1015,8 @@
               "severityValue": "INFORMATION"
             },
             "eventdata": {
-              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
-              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\real.dll",
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\unpack\\\\real.dll",
               "user": "hx-102\\\\user",
               "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
               "processId": "8068",
