@@ -1,0 +1,50 @@
+<!--
+  UniFi Network noise tuning: client churn, the phone's expected gateway
+  blocks, and the gateway's own process chatter. Depends on 100100 and 100101
+  in detections/unifi.xml, which must load first.
+-->
+
+<group name="unifi,">
+
+  <!-- Client churn (2026-10-07). Roaming between access points is dropped
+       outright. Connect and disconnect stay at level 1: stored since the
+       manager logs level 1 and up, and still usable by frequency rules. -->
+  <rule id="100105" level="0">
+    <if_sid>100100</if_sid>
+    <field name="unifi.event_name" type="pcre2">^WiFi Client Roamed$</field>
+    <description>UniFi: client roamed between access points (ignored)</description>
+  </rule>
+
+  <rule id="100106" level="1">
+    <if_sid>100100</if_sid>
+    <field name="unifi.event_name" type="pcre2">^(WiFi|Wired) Client (Connected|Disconnected)$</field>
+    <description>UniFi: $(unifi.msg)</description>
+  </rule>
+
+  <!-- Oct 8 triage. The phone keeps hitting the gateway on port 80 and the
+       "Trusted to Gateway Mgmt Block" policy drops it every time. Level 2
+       keeps the blocks stored but below the level 3 dashboard filter, and
+       100104 no longer counts them toward its scan threshold. Matched on the
+       UniFi client alias rather than the address, so a new DHCP lease does
+       not break it and the rule file carries no LAN addresses. -->
+  <rule id="100242" level="2">
+    <if_sid>100101</if_sid>
+    <field name="unifi.client_alias" type="pcre2">^Phone\b</field>
+    <dstport>^80$</dstport>
+    <field name="unifi.dst_zone" type="pcre2">^Gateway$</field>
+    <description>UniFi: phone blocked from gateway port 80 (expected)</description>
+  </rule>
+
+</group>
+
+<group name="local,tuning,">
+
+  <!-- The UniFi gateway forwards its own process logs alongside the CEF
+       events. Two internal services log a non-error every minute. -->
+  <rule id="100235" level="0">
+    <if_sid>1002</if_sid>
+    <regex type="pcre2">/usr/bin/unifi-mq-broker\[\d+\]: Failed to send request to coredns: |ubios-udapi-server\[\d+\]: process: Process' stime is unknown \(not an error\)</regex>
+    <description>UniFi gateway internal process chatter (benign)</description>
+  </rule>
+
+</group>

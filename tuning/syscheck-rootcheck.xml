@@ -1,0 +1,43 @@
+<!--
+  File integrity (syscheck) and rootcheck noise tuning on the manager and the
+  Windows agents. These cannot be replayed through wazuh-logtest, so they are
+  checked live: a manager restart runs a rootcheck scan, and FIM rules show
+  up on the next matching file event.
+-->
+
+<group name="local,tuning,">
+
+  <!-- ===== Medium band (levels 7-11), 2026-10-07 ===== -->
+
+  <!-- The manager's TLS files are Windows bind mounts, which Docker Desktop
+       always presents as mode 777. Rootcheck flags them on every scan. -->
+  <rule id="100230" level="0">
+    <if_sid>510</if_sid>
+    <field name="file" type="pcre2">^/etc/ssl/(filebeat\.pem|filebeat\.key|root-ca\.pem)$</field>
+    <field name="title">written permissions to anyone</field>
+    <description>Rootcheck: bind-mounted TLS file looks world-writable (Docker Desktop artifact)</description>
+  </rule>
+
+  <!-- Windows setup "soft landing" nag tasks are created and deleted on
+       their own schedule. -->
+  <rule id="100234" level="0">
+    <if_sid>550,553,554</if_sid>
+    <field name="file" type="pcre2">(?i)^c:\\windows\\system32\\tasks\\softlanding\\</field>
+    <description>Windows SoftLanding scheduled task churn (benign)</description>
+  </rule>
+
+  <!-- ===== Claude Desktop config churn (2026-10-10) ===== -->
+
+  <!-- Claude Desktop rewrites claude_desktop_config.json many times during
+       a session (71 modifications in one evening on 2026-10-09). The file
+       holds the MCP server definitions, so it stays under FIM and every
+       change is kept, but at level 3 instead of the stock 7. The shared
+       agent.conf adds report_changes for the path, so the alert carries the
+       diff. Deletion (553) and re-creation (554) keep their stock levels. -->
+  <rule id="100262" level="3">
+    <if_sid>550</if_sid>
+    <field name="file" type="pcre2">(?i)^c:\\users\\[^\\]+\\appdata\\(local\\packages\\claude_[a-z0-9]+\\localcache\\roaming|roaming)\\claude\\claude_desktop_config\.json$</field>
+    <description>Claude Desktop rewrote its own config file (expected churn): $(file)</description>
+  </rule>
+
+</group>

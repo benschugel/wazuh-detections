@@ -1,0 +1,124 @@
+<!--
+  Windows event log noise tuning (Application, System, Security and other
+  channels via the Wazuh agent): telemetry that is not security, known
+  crashers, and housekeeping events relabelled at a low level.
+
+  Conventions
+    level 0  pure telemetry or a fully identified benign pattern. Not stored.
+    level 1  stored and indexed, still available to frequency rules, easy to
+             filter out of dashboards with rule.level >= 3.
+    level 3  security-relevant event class from a trusted, admin-protected
+             source. Kept for audit, below the Home Assistant threshold (10).
+
+  Field values from the Windows agent contain doubled backslashes, so paths
+  are matched with \\\\ as the stock Sysmon rules do. A literal dollar sign is
+  written as \x24 and a literal ampersand as \x26 so the rule loader does not
+  read them as a variable or an entity.
+-->
+
+<group name="local,tuning,">
+
+  <!-- ===== Existing rules (2026-10-04) ===== -->
+
+  <rule id="100200" level="0">
+    <if_sid>60011</if_sid>
+    <field name="win.system.eventID">^3033$</field>
+    <field name="win.eventdata.processNameBuffer" type="pcre2">(?i)chrome\.exe$</field>
+    <field name="win.eventdata.fileNameBuffer" type="pcre2">(?i)libLiteRtWebGpuAccelerator\.dll$</field>
+    <description>Chrome LiteRT DLL signing-level failure (benign)</description>
+  </rule>
+
+  <!-- ===== Windows event log telemetry (2026-10-06) ===== -->
+
+  <rule id="100204" level="0">
+    <if_sid>60608</if_sid>
+    <description>Windows Error Reporting summary (reliability telemetry, not security)</description>
+  </rule>
+
+  <rule id="100205" level="0">
+    <if_sid>60642</if_sid>
+    <description>Software Protection service rescheduled itself (benign)</description>
+  </rule>
+
+  <!-- 100206 intentionally unused: SYSTEM service logons (60106, logon type 5)
+       are already ignored by stock rule 60232 in 4.14.8. -->
+  <rule id="100207" level="0">
+    <if_sid>61104</if_sid>
+    <field name="win.eventdata.param1" type="pcre2">^(Background Intelligent Transfer Service|IsolationSession|Windows Modules Installer)$</field>
+    <description>Windows toggled start type of $(win.eventdata.param1) (benign)</description>
+  </rule>
+
+  <rule id="100208" level="0">
+    <if_sid>62128,62129,62138</if_sid>
+    <description>Windows Defender health heartbeat, client health report or dynamic signature lookup (benign)</description>
+  </rule>
+
+  <rule id="100209" level="0">
+    <if_sid>60716,60702</if_sid>
+    <description>Restore point skipped or VSS idle shutdown (benign)</description>
+  </rule>
+
+  <!-- ===== Medium band (levels 7-11), 2026-10-07 ===== -->
+
+  <!-- Restart Manager noting an app could not be restarted or shut down
+       during an update. Reliability information, not an error. -->
+  <rule id="100231" level="3">
+    <if_sid>60602</if_sid>
+    <field name="win.system.providerName">^Microsoft-Windows-RestartManager$</field>
+    <options>no_full_log</options>
+    <description>Restart Manager: $(win.system.message)</description>
+  </rule>
+
+  <!-- Known repeat crashers: Intel Driver and Support Assistant (missing
+       ASP.NET Core 8 x86 runtime), Phone Link, Intel Graphics Software,
+       HASS.Agent satellite service. Still logged, no longer medium. -->
+  <rule id="100232" level="5">
+    <if_sid>60602,61017,61021</if_sid>
+    <field name="win.system.message" type="pcre2">(?i)DSAService(Helper)?\.exe|DSAUpdateService\.exe|Intel\(R\) Driver (&amp;|&amp;amp;) Support Assistant|PhoneExperienceHost\.exe|YourPhoneAppProxyHost\.exe|IntelGraphicsSoftware\.exe|HASS\.Agent</field>
+    <options>no_full_log</options>
+    <description>Known crashing application: $(win.system.providerName) event $(win.system.eventID)</description>
+  </rule>
+
+  <!-- Event 4738 raised by the computer account itself where every changed
+       attribute except Display Name reads "-" (Microsoft account sync).
+       A negated field test fails when the field is absent, so the check is
+       done on the event text, which always lists all attributes. Any
+       password, UAC, SID history or group change still alerts at level 8. -->
+  <rule id="100233" level="3">
+    <if_sid>60110</if_sid>
+    <field name="win.system.eventID">^4738$</field>
+    <field name="win.eventdata.subjectUserSid">^S-1-5-18$</field>
+    <field name="win.system.message" type="pcre2">Changed Attributes:\s+SAM Account Name:\s+-\s+Display Name:\s+[^\r\n]+\s+User Principal Name:\s+-\s+Home Directory:\s+-\s+Home Drive:\s+-\s+Script Path:\s+-\s+Profile Path:\s+-\s+User Workstations:\s+-\s+Password Last Set:\s+-\s+Account Expires:\s+-\s+Primary Group ID:\s+-\s+AllowedToDelegateTo:\s+-\s+Old UAC Value:\s+-\s+New UAC Value:\s+-\s+User Account Control:\s+-\s+User Parameters:\s+-\s+SID History:\s+-\s+Logon Hours:\s+-</field>
+    <options>no_full_log</options>
+    <description>Account attribute refresh for $(win.eventdata.targetUserName) by the system (no security attribute changed)</description>
+  </rule>
+
+  <!-- ===== Laptop triage, 2026-10-09 (laptop hx-102) ===== -->
+
+  <!-- System log errors from services that were broken on the laptop
+       (Intel DSA and HASS.Agent could not start without their .NET 8
+       runtime, fixed 2026-10-11; the Intel control panel service times out
+       on driver updates) and the Store's failing Spotify update. Kept at the
+       stock 61102 level 5 so a recurrence is visible. Stock 61102 feeds the
+       level 10 frequency rule 61110; routing these here keeps them out of
+       that count. The ampersand is written as \x26. -->
+  <rule id="100260" level="5">
+    <if_sid>61102</if_sid>
+    <field name="win.system.providerName" type="pcre2">^(Service Control Manager|Microsoft-Windows-WindowsUpdateClient)$</field>
+    <field name="win.system.message" type="pcre2">(?i)Intel\(R\) Driver \x26 Support Assistant( Updater)? service|HASS\.Agent - Satellite Service service|igfxCUIService[\d.]+ service|0x80073D02: 9NCBCSZSJRSB-SpotifyAB\.SpotifyMusic</field>
+    <options>no_full_log</options>
+    <description>Known service/Store failure on laptop (Intel DSA, HASS.Agent, igfxCUI, Spotify Store): $(win.system.message)</description>
+  </rule>
+
+  <!-- Event 4616 raised by the Windows Time service (LOCAL SERVICE in
+       svchost) is a clock sync, not a tamper. Anything else changing the
+       time stays at the stock level 5. -->
+  <rule id="100261" level="3">
+    <if_sid>60132</if_sid>
+    <field name="win.eventdata.subjectUserSid">^S-1-5-19$</field>
+    <field name="win.eventdata.processName" type="pcre2">(?i)^C:\\\\Windows\\\\System32\\\\svchost\.exe$</field>
+    <options>no_full_log</options>
+    <description>Windows Time service adjusted the system clock</description>
+  </rule>
+
+</group>

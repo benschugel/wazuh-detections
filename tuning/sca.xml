@@ -1,0 +1,31 @@
+<!--
+  SCA per-check results. Every check result was an alert, so each agent
+  enrollment produced hundreds. The results stay in the Configuration
+  Assessment inventory. Score summaries (19001-19005) and state changes
+  (19010-19015) still alert.
+-->
+
+<group name="sca,gdpr_IV_35.7.d,pci_dss_2.2,nist_800_53_CM.1,tsc_CC7.1,tsc_CC7.2,">
+
+  <rule id="19007" level="0" overwrite="yes">
+    <if_sid>19006</if_sid>
+    <field name="sca.check.result">^failed</field>
+    <options>no_full_log</options>
+    <description>$(sca.policy): $(sca.check.title)</description>
+  </rule>
+
+  <rule id="19008" level="0" overwrite="yes">
+    <if_sid>19006</if_sid>
+    <field name="sca.check.result">^passed</field>
+    <options>no_full_log</options>
+    <description>$(sca.policy): $(sca.check.title)</description>
+  </rule>
+
+  <rule id="19009" level="0" overwrite="yes">
+    <if_sid>19006</if_sid>
+    <field name="sca.check.result">^not applicable</field>
+    <options>no_full_log</options>
+    <description>$(sca.policy): $(sca.check.title)</description>
+  </rule>
+
+</group>

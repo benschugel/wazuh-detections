@@ -1,0 +1,22 @@
+<!--
+  Docker listener noise tuning. Docker events are plain JSON, so these can be
+  tested in any manager without the Windows or SCA harness patches.
+-->
+
+<group name="local,tuning,">
+
+  <!-- Docker health checks. Once the Docker listener was fixed on 2026-10-09
+       every HEALTHCHECK exec (frigate, the two wazuh-mcp containers,
+       paperless) became a level 3 87907 alert, one every 15 seconds. A
+       health check is a curl against localhost inside the container, with
+       an optional "/bin/sh -c" wrapper, frigate's stop-file prelude and a
+       jq or exit tail. Any other exec, including curl to a non-local host
+       and shell sessions (87908), keeps its stock level. The loader does
+       not decode &amp;amp;, so the && is written as \x26\x26. -->
+  <rule id="100247" level="0">
+    <if_sid>87907</if_sid>
+    <field name="docker.Action" type="pcre2">^exec_start: (/bin/sh -c )?(test -f /dev/shm/\.frigate-is-stopping \x26\x26 exit 0; )?curl [-\w ]*https?://(localhost|127\.0\.0\.1):\d+\S*( \|\| exit 1| \| jq -e '\.status == "healthy"' > /dev/null)?$</field>
+    <description>Docker health check exec in $(docker.Actor.Attributes.name)</description>
+  </rule>
+
+</group>
