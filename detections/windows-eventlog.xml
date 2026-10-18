@@ -1,0 +1,37 @@
+<!--
+  Windows event log detections (System channel via the Wazuh agent).
+
+  Conventions
+    level 0  pure telemetry or a fully identified benign pattern. Not stored.
+    level 1  stored and indexed, still available to frequency rules, easy to
+             filter out of dashboards with rule.level >= 3.
+    level 3  security-relevant event class from a trusted, admin-protected
+             source. Kept for audit, below the Home Assistant threshold (10).
+
+  Field values from the Windows agent contain doubled backslashes, so paths
+  are matched with \\\\ as the stock Sysmon rules do. A literal dollar sign is
+  written as \x24 and a literal ampersand as \x26 so the rule loader does not
+  read them as a variable or an entity.
+
+  The group name is kept as local,tuning, so rule.groups in stored alerts does
+  not change with the move to this repository.
+-->
+
+<group name="local,tuning,">
+
+  <!-- Service install (7045) of a kernel mode driver. Vendor utilities
+       (GIGABYTE RGB Fusion, AMD, MSI) ship signed but exploitable drivers, so
+       this is worth a phone notification even when the install was intended.
+       User mode services stay at the stock level 5. -->
+  <rule id="100241" level="12">
+    <if_sid>61138</if_sid>
+    <field name="win.eventdata.serviceType" type="pcre2">(?i)^kernel mode driver$</field>
+    <options>no_full_log</options>
+    <description>Kernel mode driver installed: $(win.eventdata.serviceName) ($(win.eventdata.imagePath))</description>
+    <mitre>
+      <id>T1543.003</id>
+      <id>T1068</id>
+    </mitre>
+  </rule>
+
+</group>

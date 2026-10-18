@@ -1,0 +1,41 @@
+<!--
+  Sysmon detections (Microsoft-Windows-Sysmon/Operational via the Wazuh agent).
+
+  Conventions
+    level 0  pure telemetry or a fully identified benign pattern. Not stored.
+    level 1  stored and indexed, still available to frequency rules, easy to
+             filter out of dashboards with rule.level >= 3.
+    level 3  security-relevant event class from a trusted, admin-protected
+             source. Kept for audit, below the Home Assistant threshold (10).
+
+  Field values from the Windows agent contain doubled backslashes, so paths
+  are matched with \\\\ as the stock Sysmon rules do. A literal dollar sign is
+  written as \x24 and a literal ampersand as \x26 so the rule loader does not
+  read them as a variable or an entity.
+
+  The group name is kept as local,tuning, so rule.groups in stored alerts does
+  not change with the move to this repository.
+-->
+
+<group name="local,tuning,">
+
+  <!-- Installers unpack dozens of executables into the user's Temp inside a
+       few seconds, and stock 92213 alerts once per file (31 alerts in five
+       seconds from the Intel graphics installer on 2026-10-08). 92213 stays
+       at level 15 and keeps firing per file. Once the same writing process
+       (Sysmon ProcessGuid) has produced ten 92213 alerts inside two minutes,
+       this rule takes the next event and names the process, so a burst reads
+       as one summary line with the per-file alerts under it. Events already
+       demoted by 100240, 100243, 100250 or 100251 do not count towards the ten. -->
+  <rule id="100500" level="15" frequency="10" timeframe="120">
+    <if_matched_sid>92213</if_matched_sid>
+    <same_field>win.eventdata.processGuid</same_field>
+    <options>no_full_log</options>
+    <description>Burst of executables dropped in Temp by one process: $(win.eventdata.image)</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>sysmon_eid11_detections,burst_summary,</group>
+  </rule>
+
+</group>
