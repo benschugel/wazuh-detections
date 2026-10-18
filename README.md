@@ -35,6 +35,9 @@ Rule ids: 100100 to 100199 are UniFi, 100200 to 100499 Windows tuning,
 | [100241](docs/detections/100241-kernel-driver-install.md) | 12 | Kernel mode driver installed |
 | [100500](docs/detections/100500-temp-drop-burst.md) | 15 | Burst of executables dropped in Temp by one process |
 
+Planned detections, with priority and difficulty, are in
+[docs/backlog.md](docs/backlog.md).
+
 ## Rule level convention
 
 Level 0 is pure telemetry or a fully identified benign pattern and ends
