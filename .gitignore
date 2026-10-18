@@ -1,0 +1,9 @@
+# Replay inputs copied out of a live manager hold real host data.
+alerts*.json
+alerts*.json.gz
+
+# Editor and interpreter leftovers
+__pycache__/
+*.pyc
+*.bak
+*.log
