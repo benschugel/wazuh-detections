@@ -18,6 +18,9 @@
     <field name="unifi.event_name">Blocked by Firewall</field>
     <description>UniFi firewall block: $(srcip) ($(unifi.src_zone)) to $(unifi.dst_zone) port $(dstport), policy $(unifi.policy)</description>
     <group>firewall,</group>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
   </rule>
 
   <rule id="100102" level="10">
@@ -25,6 +28,10 @@
     <field name="unifi.event_name">Honeypot</field>
     <description>UniFi honeypot triggered by $(unifi.client_alias) ($(srcmac))</description>
     <group>attack,honeypot,</group>
+    <mitre>
+      <id>T1046</id>
+      <id>T1018</id>
+    </mitre>
   </rule>
 
   <rule id="100103" level="10">
@@ -32,6 +39,10 @@
     <field name="unifi.event_name">Threat Detected</field>
     <description>UniFi IPS: $(unifi.msg)</description>
     <group>ids,</group>
+    <mitre>
+      <id>T1190</id>
+      <id>T1071</id>
+    </mitre>
   </rule>
 
   <rule id="100104" level="12" frequency="8" timeframe="60">
@@ -39,6 +50,9 @@
     <same_srcip />
     <description>UniFi: 8+ firewall blocks from $(srcip) in 60s, possible scan</description>
     <group>recon,</group>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
   </rule>
 
 </group>
