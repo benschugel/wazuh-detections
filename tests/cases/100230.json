@@ -1,0 +1,12 @@
+{
+  "rule": "100230",
+  "title": "Rootcheck on bind-mounted TLS files (level 0). Informational: rootcheck is not replayable through logtest",
+  "cases": [
+    {
+      "name": "rootcheck TLS file (informational, may be untestable)",
+      "location": "rootcheck",
+      "event": "File '/etc/ssl/filebeat.pem' is owned by root and has written permissions to anyone.",
+      "info": true
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "rule": "100233",
+  "title": "Account attribute refresh by SYSTEM with no security attribute changed (level 3)",
+  "cases": [
+    {
+      "name": "Account refresh by SYSTEM, display name only",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4738",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tHX-101$\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\t-\r\n\tDisplay Name:\tExample User\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t-\r\n\tHome Drive:\t-\r\n\tScript Path:\t-\r\n\tProfile Path:\t-\r\n\tUser Workstations:\t-\r\n\tPassword Last Set:\t-\r\n\tAccount Expires:\t-\r\n\tPrimary Group ID:\t-\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t-\r\n\tNew UAC Value:\t-\r\n\tUser Account Control:\t-\r\n\tUser Parameters:\t-\r\n\tSID History:\t-\r\n\tLogon Hours:\t-\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-"
+          },
+          "eventdata": {
+            "targetUserName": "user",
+            "targetDomainName": "hx-101",
+            "targetSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserSid": "S-1-5-18",
+            "subjectUserName": "HX-101$",
+            "subjectDomainName": "WORKGROUP",
+            "subjectLogonId": "0x3e7",
+            "displayName": "Example User"
+          }
+        }
+      },
+      "expect": {
+        "id": "100233",
+        "level": 3
+      }
+    },
+    {
+      "name": "Account change by SYSTEM with password set",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4738",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tHX-101$\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\t-\r\n\tDisplay Name:\tExample User\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t-\r\n\tHome Drive:\t-\r\n\tScript Path:\t-\r\n\tProfile Path:\t-\r\n\tUser Workstations:\t-\r\n\tPassword Last Set:\t10/7/2026 1:00:00 AM\r\n\tAccount Expires:\t-\r\n\tPrimary Group ID:\t-\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t-\r\n\tNew UAC Value:\t-\r\n\tUser Account Control:\t-\r\n\tUser Parameters:\t-\r\n\tSID History:\t-\r\n\tLogon Hours:\t-\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-"
+          },
+          "eventdata": {
+            "targetUserName": "user",
+            "targetDomainName": "hx-101",
+            "targetSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserSid": "S-1-5-18",
+            "subjectUserName": "HX-101$",
+            "subjectDomainName": "WORKGROUP",
+            "subjectLogonId": "0x3e7",
+            "displayName": "Example User"
+          }
+        }
+      },
+      "expect": {
+        "id": "60110",
+        "level": 8
+      }
+    },
+    {
+      "name": "Account change by SYSTEM with UAC change",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4738",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tHX-101$\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\t-\r\n\tDisplay Name:\tExample User\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t-\r\n\tHome Drive:\t-\r\n\tScript Path:\t-\r\n\tProfile Path:\t-\r\n\tUser Workstations:\t-\r\n\tPassword Last Set:\t-\r\n\tAccount Expires:\t-\r\n\tPrimary Group ID:\t-\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t0x210\r\n\tNew UAC Value:\t0x211\r\n\tUser Account Control:\t%%2080\r\n\tUser Parameters:\t-\r\n\tSID History:\t-\r\n\tLogon Hours:\t-\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-"
+          },
+          "eventdata": {
+            "targetUserName": "user",
+            "targetDomainName": "hx-101",
+            "targetSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserSid": "S-1-5-18",
+            "subjectUserName": "HX-101$",
+            "subjectDomainName": "WORKGROUP",
+            "subjectLogonId": "0x3e7",
+            "displayName": "Example User"
+          }
+        }
+      },
+      "expect": {
+        "id": "60110",
+        "level": 8
+      }
+    },
+    {
+      "name": "Account change by SYSTEM with SID history",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4738",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tHX-101$\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\t-\r\n\tDisplay Name:\tExample User\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t-\r\n\tHome Drive:\t-\r\n\tScript Path:\t-\r\n\tProfile Path:\t-\r\n\tUser Workstations:\t-\r\n\tPassword Last Set:\t-\r\n\tAccount Expires:\t-\r\n\tPrimary Group ID:\t-\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t-\r\n\tNew UAC Value:\t-\r\n\tUser Account Control:\t-\r\n\tUser Parameters:\t-\r\n\tSID History:\tS-1-5-21-9-9-9-500\r\n\tLogon Hours:\t-\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-"
+          },
+          "eventdata": {
+            "targetUserName": "user",
+            "targetDomainName": "hx-101",
+            "targetSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserSid": "S-1-5-18",
+            "subjectUserName": "HX-101$",
+            "subjectDomainName": "WORKGROUP",
+            "subjectLogonId": "0x3e7",
+            "displayName": "Example User"
+          }
+        }
+      },
+      "expect": {
+        "id": "60110",
+        "level": 8
+      }
+    },
+    {
+      "name": "Account change by SYSTEM with group change",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4738",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tHX-101$\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\t-\r\n\tDisplay Name:\tExample User\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t-\r\n\tHome Drive:\t-\r\n\tScript Path:\t-\r\n\tProfile Path:\t-\r\n\tUser Workstations:\t-\r\n\tPassword Last Set:\t-\r\n\tAccount Expires:\t-\r\n\tPrimary Group ID:\t544\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t-\r\n\tNew UAC Value:\t-\r\n\tUser Account Control:\t-\r\n\tUser Parameters:\t-\r\n\tSID History:\t-\r\n\tLogon Hours:\t-\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-"
+          },
+          "eventdata": {
+            "targetUserName": "user",
+            "targetDomainName": "hx-101",
+            "targetSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserSid": "S-1-5-18",
+            "subjectUserName": "HX-101$",
+            "subjectDomainName": "WORKGROUP",
+            "subjectLogonId": "0x3e7",
+            "displayName": "Example User"
+          }
+        }
+      },
+      "expect": {
+        "id": "60110",
+        "level": 8
+      }
+    },
+    {
+      "name": "Account change by an interactive user",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4738",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "A user account was changed.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-1-2-3-1001\r\n\tAccount Name:\t\tuser\r\n\r\nChanged Attributes:\r\n\tSAM Account Name:\t-\r\n\tDisplay Name:\tExample User\r\n\tUser Principal Name:\t-\r\n\tHome Directory:\t-\r\n\tHome Drive:\t-\r\n\tScript Path:\t-\r\n\tProfile Path:\t-\r\n\tUser Workstations:\t-\r\n\tPassword Last Set:\t-\r\n\tAccount Expires:\t-\r\n\tPrimary Group ID:\t-\r\n\tAllowedToDelegateTo:\t-\r\n\tOld UAC Value:\t-\r\n\tNew UAC Value:\t-\r\n\tUser Account Control:\t-\r\n\tUser Parameters:\t-\r\n\tSID History:\t-\r\n\tLogon Hours:\t-\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-"
+          },
+          "eventdata": {
+            "targetUserName": "user",
+            "targetDomainName": "hx-101",
+            "targetSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserSid": "S-1-5-21-1-2-3-1001",
+            "subjectUserName": "user",
+            "subjectDomainName": "WORKGROUP",
+            "subjectLogonId": "0x3e7",
+            "displayName": "Example User"
+          }
+        }
+      },
+      "expect": {
+        "id": "60110",
+        "level": 8
+      }
+    }
+  ]
+}

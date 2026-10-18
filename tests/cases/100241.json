@@ -1,0 +1,136 @@
+{
+  "rule": "100241",
+  "title": "Kernel mode driver installed (level 12); user mode services stay at the stock level 5",
+  "cases": [
+    {
+      "name": "GIGABYTE kernel driver install",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7045",
+            "channel": "System",
+            "severityValue": "INFORMATION",
+            "message": "A service was installed in the system. Service Name: GVCIDrv"
+          },
+          "eventdata": {
+            "serviceName": "GVCIDrv",
+            "imagePath": "C:\\\\Program Files (x86)\\\\GIGABYTE\\\\RGBFusion\\\\GVCIDrv64.sys",
+            "serviceType": "kernel mode driver",
+            "startType": "demand start",
+            "accountName": "LocalSystem"
+          }
+        }
+      },
+      "expect": {
+        "id": "100241",
+        "level": 12
+      }
+    },
+    {
+      "name": "AMD kernel driver install",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7045",
+            "channel": "System",
+            "severityValue": "INFORMATION",
+            "message": "A service was installed in the system. Service Name: AMD Special Tools Driver"
+          },
+          "eventdata": {
+            "serviceName": "AMD Special Tools Driver",
+            "imagePath": "\\\\SystemRoot\\\\System32\\\\drivers\\\\AmdTools64.sys",
+            "serviceType": "kernel mode driver",
+            "startType": "demand start",
+            "accountName": "LocalSystem"
+          }
+        }
+      },
+      "expect": {
+        "id": "100241",
+        "level": 12
+      }
+    },
+    {
+      "name": "Sysmon driver install (boot start)",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7045",
+            "channel": "System",
+            "severityValue": "INFORMATION",
+            "message": "A service was installed in the system. Service Name: SysmonDrv"
+          },
+          "eventdata": {
+            "serviceName": "SysmonDrv",
+            "imagePath": "C:\\\\WINDOWS\\\\SysmonDrv.sys",
+            "serviceType": "kernel mode driver",
+            "startType": "boot start",
+            "accountName": "LocalSystem"
+          }
+        }
+      },
+      "expect": {
+        "id": "100241",
+        "level": 12
+      }
+    },
+    {
+      "name": "User mode service install stays level 5",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7045",
+            "channel": "System",
+            "severityValue": "INFORMATION",
+            "message": "A service was installed in the system. Service Name: Docker Desktop Service"
+          },
+          "eventdata": {
+            "serviceName": "Docker Desktop Service",
+            "imagePath": "C:\\\\Program Files\\\\Docker\\\\Docker\\\\com.docker.service",
+            "serviceType": "user mode service",
+            "startType": "demand start",
+            "accountName": "LocalSystem"
+          }
+        }
+      },
+      "expect": {
+        "id": "61138",
+        "level": 5
+      }
+    },
+    {
+      "name": "Sysmon user mode service stays level 5",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7045",
+            "channel": "System",
+            "severityValue": "INFORMATION",
+            "message": "A service was installed in the system. Service Name: Sysmon64"
+          },
+          "eventdata": {
+            "serviceName": "Sysmon64",
+            "imagePath": "C:\\\\WINDOWS\\\\Sysmon64.exe",
+            "serviceType": "user mode service",
+            "startType": "auto start",
+            "accountName": "LocalSystem"
+          }
+        }
+      },
+      "expect": {
+        "id": "61138",
+        "level": 5
+      }
+    }
+  ]
+}

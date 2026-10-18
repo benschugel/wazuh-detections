@@ -1,0 +1,30 @@
+{
+  "rule": "100213",
+  "title": "Claude Code starting cmd.exe (level 0); cmd from an unknown parent still alerts",
+  "cases": [
+    {
+      "name": "cmd started by an unknown program",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "parentImage": "C:\\\\Users\\\\user\\\\Downloads\\\\tool.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /c whoami"
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    }
+  ]
+}

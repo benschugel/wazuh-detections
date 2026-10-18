@@ -1,0 +1,28 @@
+{
+  "rule": "100224",
+  "title": "Mullvad VPN updater unpack in Temp (level 3); writes outside its NSIS folder still alert",
+  "cases": [
+    {
+      "name": "Mullvad updater writing outside its NSIS temp folder",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\ProgramData\\\\Mullvad VPN\\\\cache\\\\mullvad-update\\\\mullvad-2026.5.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\evil.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

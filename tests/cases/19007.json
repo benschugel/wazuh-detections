@@ -1,0 +1,65 @@
+{
+  "rule": "19007",
+  "title": "SCA per-check results silenced (19007 to 19009 overwrite); score and state changes still alert",
+  "cases": [
+    {
+      "name": "SCA check regressed passed -> failed",
+      "location": "guard",
+      "event": {
+        "sca": {
+          "type": "check",
+          "policy": "Example policy",
+          "check": {
+            "id": "1",
+            "title": "Example check",
+            "result": "failed",
+            "previous_result": "passed"
+          }
+        }
+      },
+      "expect": {
+        "id": "19011",
+        "level": 9
+      }
+    },
+    {
+      "name": "SCA check newly failed from n/a",
+      "location": "guard",
+      "event": {
+        "sca": {
+          "type": "check",
+          "policy": "Example policy",
+          "check": {
+            "id": "1",
+            "title": "Example check",
+            "result": "failed",
+            "previous_result": "not applicable"
+          }
+        }
+      },
+      "expect": {
+        "id": "19014",
+        "level": 9
+      }
+    },
+    {
+      "name": "SCA plain failed result is silent",
+      "location": "guard",
+      "event": {
+        "sca": {
+          "type": "check",
+          "policy": "Example policy",
+          "check": {
+            "id": "1",
+            "title": "Example check",
+            "result": "failed"
+          }
+        }
+      },
+      "expect": {
+        "id": "19007",
+        "level": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "rule": "100261",
+  "title": "Windows Time service adjusting the clock (level 3); a user changing it stays at level 5",
+  "cases": [
+    {
+      "name": "Windows Time service adjusts the clock",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4616",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "The system time was changed."
+          },
+          "eventdata": {
+            "subjectUserSid": "S-1-5-19",
+            "subjectUserName": "LOCAL SERVICE",
+            "subjectDomainName": "NT AUTHORITY",
+            "processName": "C:\\\\Windows\\\\System32\\\\svchost.exe",
+            "previousTime": "2026-10-09T02:55:40Z",
+            "newTime": "2026-10-09T02:55:41Z"
+          }
+        }
+      },
+      "expect": {
+        "id": "100261",
+        "level": 3
+      }
+    },
+    {
+      "name": "User changing the clock is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Security-Auditing",
+            "eventID": "4616",
+            "channel": "Security",
+            "severityValue": "AUDIT_SUCCESS",
+            "message": "The system time was changed."
+          },
+          "eventdata": {
+            "subjectUserSid": "S-1-5-21-1111111111-2222222222-3333333333-1001",
+            "subjectUserName": "user",
+            "subjectDomainName": "HX-102",
+            "processName": "C:\\\\Windows\\\\System32\\\\SystemSettingsAdminFlows.exe",
+            "previousTime": "2026-10-09T02:55:40Z",
+            "newTime": "2026-10-09T05:55:41Z"
+          }
+        }
+      },
+      "expect": {
+        "id": "60132",
+        "level": 5
+      }
+    }
+  ]
+}

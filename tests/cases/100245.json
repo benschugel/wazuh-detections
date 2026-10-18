@@ -1,0 +1,141 @@
+{
+  "rule": "100245",
+  "title": "Dropbox installer re-adding its LAN sync firewall rule (level 3)",
+  "cases": [
+    {
+      "name": "Dropbox installer UDP 17500 rule",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow \\\"program=C:\\\\Program Files (x86)\\\\Dropbox\\\\Client\\\\Dropbox.exe\\\" enable=yes profile=Any protocol=udp localport=17500",
+            "parentImage": "C:\\\\Windows\\\\SystemTemp\\\\dropbox_Unpacker_BeginUnzipping9948_1127445525\\\\app\\\\Dropbox.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100245",
+        "level": 3
+      }
+    },
+    {
+      "name": "Dropbox installer TCP 17500-17510 rule",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow \\\"program=C:\\\\Program Files (x86)\\\\Dropbox\\\\Client\\\\Dropbox.exe\\\" enable=yes profile=Any protocol=tcp localport=17500-17510",
+            "parentImage": "C:\\\\Windows\\\\SystemTemp\\\\dropbox_Unpacker_BeginUnzipping9948_1127445525\\\\app\\\\Dropbox.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100245",
+        "level": 3
+      }
+    },
+    {
+      "name": "Dropbox installer opening a different port is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow \\\"program=C:\\\\Program Files (x86)\\\\Dropbox\\\\Client\\\\Dropbox.exe\\\" enable=yes profile=Any protocol=tcp localport=4444",
+            "parentImage": "C:\\\\Windows\\\\SystemTemp\\\\dropbox_Unpacker_BeginUnzipping9948_1127445525\\\\app\\\\Dropbox.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92043",
+        "level": 10
+      }
+    },
+    {
+      "name": "Dropbox-named rule for another program is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow \\\"program=C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\x.exe\\\" enable=yes profile=Any protocol=tcp localport=17500",
+            "parentImage": "C:\\\\Windows\\\\SystemTemp\\\\dropbox_Unpacker_BeginUnzipping9948_1127445525\\\\app\\\\Dropbox.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92043",
+        "level": 10
+      }
+    },
+    {
+      "name": "Dropbox rule from a non-installer parent is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\netsh.exe advfirewall firewall add rule name=Dropbox dir=in action=allow \\\"program=C:\\\\Program Files (x86)\\\\Dropbox\\\\Client\\\\Dropbox.exe\\\" enable=yes profile=Any protocol=udp localport=17500",
+            "parentImage": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\Dropbox.exe",
+            "user": "hx-101\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92043",
+        "level": 10
+      }
+    }
+  ]
+}

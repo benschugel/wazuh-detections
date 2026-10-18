@@ -1,0 +1,28 @@
+{
+  "rule": "100221",
+  "title": "Steam hardware updater unpack in Temp (level 3); look-alike paths still alert",
+  "cases": [
+    {
+      "name": "Exe dropped in Temp by fake Steam path under user profile",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Steam\\\\bin\\\\hardwareupdater\\\\hardwareupdater.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\_MEI1234\\\\evil.dll"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

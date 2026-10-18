@@ -1,0 +1,119 @@
+{
+  "rule": "100260",
+  "title": "Known service and Store failures on the laptop (level 5)",
+  "cases": [
+    {
+      "name": "SCM timeout for the DSA service",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7009",
+            "channel": "System",
+            "severityValue": "ERROR",
+            "message": "A timeout was reached (30000 milliseconds) while waiting for the Intel(R) Driver & Support Assistant service to connect."
+          },
+          "eventdata": {
+            "param1": "30000",
+            "param2": "Intel(R) Driver & Support Assistant"
+          }
+        }
+      },
+      "expect": {
+        "id": "100260",
+        "level": 5
+      }
+    },
+    {
+      "name": "SCM start failure for HASS.Agent",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7009",
+            "channel": "System",
+            "severityValue": "ERROR",
+            "message": "A timeout was reached (30000 milliseconds) while waiting for the HASS.Agent - Satellite Service service to connect."
+          },
+          "eventdata": {
+            "param1": "30000",
+            "param2": "HASS.Agent - Satellite Service"
+          }
+        }
+      },
+      "expect": {
+        "id": "100260",
+        "level": 5
+      }
+    },
+    {
+      "name": "Store Spotify update failure",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-WindowsUpdateClient",
+            "eventID": "20",
+            "channel": "System",
+            "severityValue": "ERROR",
+            "message": "Installation Failure: Windows failed to install the following update with error 0x80073D02: 9NCBCSZSJRSB-SpotifyAB.SpotifyMusic."
+          },
+          "eventdata": {
+            "errorCode": "0x80073d02"
+          }
+        }
+      },
+      "expect": {
+        "id": "100260",
+        "level": 5
+      }
+    },
+    {
+      "name": "SCM timeout for another service is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Service Control Manager",
+            "eventID": "7009",
+            "channel": "System",
+            "severityValue": "ERROR",
+            "message": "A timeout was reached (30000 milliseconds) while waiting for the Windows Defender Antivirus Service service to connect."
+          },
+          "eventdata": {
+            "param1": "30000",
+            "param2": "Windows Defender Antivirus Service"
+          }
+        }
+      },
+      "expect": {
+        "id": "61102",
+        "level": 5
+      }
+    },
+    {
+      "name": "Store failure for another app is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-WindowsUpdateClient",
+            "eventID": "20",
+            "channel": "System",
+            "severityValue": "ERROR",
+            "message": "Installation Failure: Windows failed to install the following update with error 0x80073D02: 9WZDNCRFJ3TJ-Microsoft.Office."
+          },
+          "eventdata": {
+            "errorCode": "0x80073d02"
+          }
+        }
+      },
+      "expect": {
+        "id": "61102",
+        "level": 5
+      }
+    }
+  ]
+}

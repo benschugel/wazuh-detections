@@ -1,0 +1,86 @@
+{
+  "rule": "100232",
+  "title": "Known repeat crashers (level 5); unknown crashes stay at the stock level 9",
+  "cases": [
+    {
+      "name": "Intel DSA .NET launch failure",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": ".NET Runtime",
+            "eventID": "1023",
+            "channel": "Application",
+            "severityValue": "ERROR",
+            "message": "Description: A .NET application failed. Application: DSAServiceHelper.exe Path: C:\\Program Files (x86)\\Intel"
+          },
+          "eventdata": {}
+        }
+      },
+      "expect": {
+        "id": "100232",
+        "level": 5
+      }
+    },
+    {
+      "name": "Phone Link crash",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Application Error",
+            "eventID": "1000",
+            "channel": "Application",
+            "severityValue": "ERROR",
+            "message": "Faulting application name: PhoneExperienceHost.exe, version: 1.2.3, time stamp: 0x1"
+          },
+          "eventdata": {}
+        }
+      },
+      "expect": {
+        "id": "100232",
+        "level": 5
+      }
+    },
+    {
+      "name": "Unknown app crash stays level 9",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Application Error",
+            "eventID": "1000",
+            "channel": "Application",
+            "severityValue": "ERROR",
+            "message": "Faulting application name: chrome.exe, version: 1.2.3, time stamp: 0x1"
+          },
+          "eventdata": {}
+        }
+      },
+      "expect": {
+        "id": "60602",
+        "level": 9
+      }
+    },
+    {
+      "name": "Unknown .NET unhandled exception stays level 9",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": ".NET Runtime",
+            "eventID": "1026",
+            "channel": "Application",
+            "severityValue": "ERROR",
+            "message": "Application: SomethingElse.exe CoreCLR Version: 10.0 Description: The process was terminated"
+          },
+          "eventdata": {}
+        }
+      },
+      "expect": {
+        "id": "61017",
+        "level": 9
+      }
+    }
+  ]
+}

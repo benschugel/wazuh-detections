@@ -1,0 +1,28 @@
+{
+  "rule": "100210",
+  "title": "PowerShell policy probe file in Windows temp (level 0); real scripts still alert",
+  "cases": [
+    {
+      "name": "PowerShell writing a real script into Windows Temp",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe",
+            "targetFilename": "C:\\\\Windows\\\\Temp\\\\stage2.ps1"
+          }
+        }
+      },
+      "expect": {
+        "id": "92201",
+        "level": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "rule": "100228",
+  "title": "Explorer started by COM or PowerToys (level 0); unusual explorer command lines still alert",
+  "cases": [
+    {
+      "name": "Explorer started with an unusual command line",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\explorer.exe",
+            "originalFileName": "EXPLORER.EXE",
+            "parentImage": "C:\\\\Users\\\\user\\\\Downloads\\\\tool.exe",
+            "commandLine": "C:\\\\Windows\\\\explorer.exe C:\\\\Users\\\\Public"
+          }
+        }
+      },
+      "expect": {
+        "id": "61640",
+        "level": 12
+      }
+    }
+  ]
+}

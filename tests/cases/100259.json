@@ -1,0 +1,62 @@
+{
+  "rule": "100259",
+  "title": "Wazuh active response restarting the agent service (level 0)",
+  "cases": [
+    {
+      "name": "Wazuh restart active response stops the service",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\SysWOW64\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /c %%WINDIR%%\\\\system32\\\\net.exe stop Wazuh",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Program Files (x86)\\\\ossec-agent\\\\active-response\\\\bin\\\\restart-wazuh.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "100259",
+        "level": 0
+      }
+    },
+    {
+      "name": "restart-wazuh running anything else is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\SysWOW64\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /c net.exe stop WinDefend",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Program Files (x86)\\\\ossec-agent\\\\active-response\\\\bin\\\\restart-wazuh.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "rule": "100231",
+  "title": "Restart Manager notes (level 3)",
+  "cases": [
+    {
+      "name": "Restart Manager could not restart app",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-RestartManager",
+            "eventID": "10010",
+            "channel": "Application",
+            "severityValue": "ERROR",
+            "message": "Application or service 'Intel(R) Driver & Support Assistant' could not be restarted."
+          },
+          "eventdata": {}
+        }
+      },
+      "expect": {
+        "id": "100231",
+        "level": 3
+      }
+    }
+  ]
+}

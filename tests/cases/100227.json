@@ -1,0 +1,29 @@
+{
+  "rule": "100227",
+  "title": "Per-user service instance registered at logon (level 0); other new services still alert",
+  "cases": [
+    {
+      "name": "New non per-user service registered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "13",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\WINDOWS\\\\system32\\\\services.exe",
+            "targetObject": "HKLM\\\\System\\\\CurrentControlSet\\\\Services\\\\EvilSvc\\\\ImagePath",
+            "details": "C:\\\\Users\\\\Public\\\\evil.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92307",
+        "level": 3
+      }
+    }
+  ]
+}

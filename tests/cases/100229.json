@@ -1,0 +1,57 @@
+{
+  "rule": "100229",
+  "title": "Tailscale re-adding its own firewall rule (level 3); other netsh rule adds still alert",
+  "cases": [
+    {
+      "name": "Netsh firewall rule added by something other than Tailscale",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "parentImage": "C:\\\\Users\\\\user\\\\Downloads\\\\tool.exe",
+            "commandLine": "netsh advfirewall firewall add rule name=Tailscale-In dir=in action=allow"
+          }
+        }
+      },
+      "expect": {
+        "id": "92043",
+        "level": 10
+      }
+    },
+    {
+      "name": "Tailscale rule still handled by 100229",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\netsh.exe",
+            "originalFileName": "netsh.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\netsh.exe advfirewall firewall add rule name=Tailscale-In dir=in action=allow localip=100.64.0.10/32 profile=private,domain enable=yes",
+            "parentImage": "C:\\\\Program Files\\\\Tailscale\\\\tailscaled.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100229",
+        "level": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "rule": "100240",
+  "title": "Trusted updaters unpacking in temp folders (level 3)",
+  "cases": [
+    {
+      "name": "Dropbox updater unpack in SystemTemp",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Dropbox\\\\DropboxUpdater\\\\123.0.6299.152\\\\updater.exe",
+            "targetFilename": "C:\\\\Windows\\\\SystemTemp\\\\dropbox_Unpacker_BeginUnzipping9948_1127445525\\\\app\\\\274.4.4841\\\\api-ms-win-core-file-l1-1-0.dll",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100240",
+        "level": 3
+      }
+    },
+    {
+      "name": "Garmin esu assembly cache",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Garmin\\\\Express SelfUpdater\\\\esu.exe",
+            "targetFilename": "C:\\\\Windows\\\\SysWOW64\\\\config\\\\systemprofile\\\\AppData\\\\Local\\\\assembly\\\\tmp\\\\X5MEALU3\\\\NLog.DLL",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100240",
+        "level": 3
+      }
+    },
+    {
+      "name": "Garmin esu temp exe",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Garmin\\\\Express SelfUpdater\\\\esu.exe",
+            "targetFilename": "C:\\\\Windows\\\\SystemTemp\\\\tmp3B94.tmp.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100240",
+        "level": 3
+      }
+    },
+    {
+      "name": "Overwolf Widevine unpack in user Temp",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Overwolf\\\\0.311.0.6\\\\Overwolf.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chrome_Unpacker_BeginUnzipping34728_494299380\\\\_platform_specific\\\\win_x64\\\\widevinecdm.dll",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100240",
+        "level": 3
+      }
+    },
+    {
+      "name": "Spotify Widevine unpack in user Temp",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\WindowsApps\\\\SpotifyAB.SpotifyMusic_1.303.264.0_x64__zpdnekdrzrea0\\\\Spotify.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromium_chrome_Unpacker_BeginUnzipping41364_434891458\\\\_platform_specific\\\\win_x64\\\\widevinecdm.dll",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100240",
+        "level": 3
+      }
+    },
+    {
+      "name": "Dropbox updater writing elsewhere under Windows is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Dropbox\\\\DropboxUpdater\\\\123.0.6299.152\\\\updater.exe",
+            "targetFilename": "C:\\\\Windows\\\\System32\\\\evil.dll",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92217",
+        "level": 6
+      }
+    },
+    {
+      "name": "Dropbox updater dropping into user Temp is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Dropbox\\\\DropboxUpdater\\\\123.0.6299.152\\\\updater.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\payload.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Look-alike path outside Program Files is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Dropbox\\\\DropboxUpdater\\\\1.0\\\\updater.exe",
+            "targetFilename": "C:\\\\Windows\\\\SystemTemp\\\\dropbox_Unpacker_BeginUnzipping1_2\\\\x.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92217",
+        "level": 6
+      }
+    },
+    {
+      "name": "Overwolf dropping a plain exe in Temp is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Overwolf\\\\0.311.0.6\\\\Overwolf.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\update.exe",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

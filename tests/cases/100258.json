@@ -1,0 +1,62 @@
+{
+  "rule": "100258",
+  "title": "Intel graphics control panel service running its batch file (level 3)",
+  "cases": [
+    {
+      "name": "Intel control panel service runs its batch file",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /c \\\"C:\\\\Intel\\\\GfxCPLBatchFiles\\\\{EC94D02F-D200-4428-9531-05AF7F9799CB}.bat\\\"",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\DriverStore\\\\FileRepository\\\\cui_dch.inf_amd64_2ab7dcc8af555ba2\\\\igfxCUIServiceN.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "100258",
+        "level": 3
+      }
+    },
+    {
+      "name": "Intel control panel service running a batch from Temp is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /c \\\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\x.bat\\\"",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\DriverStore\\\\FileRepository\\\\cui_dch.inf_amd64_2ab7dcc8af555ba2\\\\igfxCUIServiceN.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    }
+  ]
+}

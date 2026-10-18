@@ -1,0 +1,222 @@
+{
+  "rule": "100244",
+  "title": "Installers writing their Uninstall registry entry (level 3)",
+  "cases": [
+    {
+      "name": "RustDesk installer EstimatedSize (SYSTEM via cmd)",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg  add HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\RustDesk /f /v EstimatedSize /t REG_DWORD /d 76196",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100244",
+        "level": 3
+      }
+    },
+    {
+      "name": "RustDesk installer DisplayIcon path",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg  add HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\RustDesk /f /v DisplayIcon /t REG_SZ /d \\\"C:\\\\Program Files\\\\RustDesk\\\\RustDesk.exe\\\"",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100244",
+        "level": 3
+      }
+    },
+    {
+      "name": "RustDesk installer BuildDate",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg  add HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\RustDesk /f /v BuildDate /t REG_SZ /d \\\"2026-09-30 17:00\\\"",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100244",
+        "level": 3
+      }
+    },
+    {
+      "name": "Discord updater DisplayVersion (user, HKCU)",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\System32\\\\reg.exe add HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\Discord /v DisplayVersion /d 1.0.9261 /f",
+            "parentImage": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9260\\\\Discord.exe",
+            "user": "hx-101\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "100244",
+        "level": 3
+      }
+    },
+    {
+      "name": "Uninstall key write with a non-standard value name is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg add HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\Foo /v Payload /d aGVsbG8gd29ybGQ= /f",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92041",
+        "level": 10
+      }
+    },
+    {
+      "name": "Run key write from cmd.exe is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg add HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run /v Updater /d aGVsbG8gd29ybGQ= /f",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92041",
+        "level": 10
+      }
+    },
+    {
+      "name": "Uninstall key write from an unknown parent is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg add HKEY_LOCAL_MACHINE\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\Foo /v DisplayVersion /d 1.0.9261 /f",
+            "parentImage": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+            "user": "hx-101\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92041",
+        "level": 10
+      }
+    },
+    {
+      "name": "Discord look-alike outside AppData is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "reg add HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\Discord /v DisplayVersion /d 1.0.9261 /f",
+            "parentImage": "C:\\\\Users\\\\Public\\\\Discord\\\\app-1.0.9260\\\\Discord.exe",
+            "user": "hx-101\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234"
+          }
+        }
+      },
+      "expect": {
+        "id": "92041",
+        "level": 10
+      }
+    }
+  ]
+}

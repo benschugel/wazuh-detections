@@ -1,0 +1,156 @@
+{
+  "rule": "100243",
+  "title": "Claude Code session writing to its own scratchpad (level 1)",
+  "cases": [
+    {
+      "name": "Git bash writing a script into the Claude scratchpad",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Git\\\\bin\\\\..\\\\usr\\\\bin\\\\bash.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\8ff150cd-7d21-4d6e-8f7a-bb7f4b89a1cd\\\\scratchpad\\\\fix-wazuh-agent.ps1",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100243",
+        "level": 1
+      }
+    },
+    {
+      "name": "Git bash (direct path) writing into the Claude scratchpad",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\8ff150cd-7d21-4d6e-8f7a-bb7f4b89a1cd\\\\scratchpad\\\\tools\\\\probe.exe",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100243",
+        "level": 1
+      }
+    },
+    {
+      "name": "claude.exe writing into the Claude scratchpad",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\claude.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\8ff150cd-7d21-4d6e-8f7a-bb7f4b89a1cd\\\\scratchpad\\\\run.ps1",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "100243",
+        "level": 1
+      }
+    },
+    {
+      "name": "Git bash writing a script directly in Temp is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Git\\\\bin\\\\..\\\\usr\\\\bin\\\\bash.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\fix.ps1",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Git bash writing outside the session folder is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files\\\\Git\\\\bin\\\\..\\\\usr\\\\bin\\\\bash.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\evil.exe",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Unknown process writing into the Claude scratchpad is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\8ff150cd-7d21-4d6e-8f7a-bb7f4b89a1cd\\\\scratchpad\\\\drop.exe",
+            "user": "hx-101\\\\user",
+            "processId": "1234",
+            "ruleName": "-"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

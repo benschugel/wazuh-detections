@@ -1,0 +1,174 @@
+{
+  "rule": "100251",
+  "title": "WiX Burn installer staging in Temp (level 3)",
+  "cases": [
+    {
+      "name": "Downloaded bundle copies itself to the clean room",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Downloads\\\\aspnetcore-runtime-8.0.31-win-x86.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{9789F1F6-3E02-452F-AE90-7C6D53F958F9}\\\\.cr\\\\aspnetcore-runtime-8.0.31-win-x86.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100251",
+        "level": 3
+      }
+    },
+    {
+      "name": "Clean room copy writes the bootstrapper DLL",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{9789F1F6-3E02-452F-AE90-7C6D53F958F9}\\\\.cr\\\\aspnetcore-runtime-8.0.31-win-x86.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{A5D9E846-3F57-4645-8800-BD2AA24FBE44}\\\\.ba\\\\wixstdba.dll",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100251",
+        "level": 3
+      }
+    },
+    {
+      "name": "Package Cache bundle writes its engine to Windows\\Temp (92217)",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\ProgramData\\\\Package Cache\\\\{FA1D428A-E075-4EC1-833B-E08B212DE158}\\\\IntelGraphicsSoftwareInstaller.exe",
+            "targetFilename": "C:\\\\Windows\\\\Temp\\\\{12077DBD-0371-4A51-BAE0-4FC6B176FB1C}\\\\.ba\\\\wixstdba.dll",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100251",
+        "level": 3
+      }
+    },
+    {
+      "name": "Intel extras bundle extracts a payload next to the clean room",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Resources\\\\Extras\\\\IntelGraphicsSoftware_26.32.2604.4_Release.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{12077DBD-0371-4A51-BAE0-4FC6B176FB1C}\\\\install_prerequisites.cmd",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100251",
+        "level": 3
+      }
+    },
+    {
+      "name": "Clean room copy writing outside the GUID folder is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{12077DBD-0371-4A51-BAE0-4FC6B176FB1C}\\\\.cr\\\\setup.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\dropper.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Downloaded exe writing a GUID folder without the Burn layout is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{12077DBD-0371-4A51-BAE0-4FC6B176FB1C}\\\\sub\\\\tool.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Unknown image writing into a clean room folder is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\Public\\\\setup.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\{12077DBD-0371-4A51-BAE0-4FC6B176FB1C}\\\\.cr\\\\setup.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

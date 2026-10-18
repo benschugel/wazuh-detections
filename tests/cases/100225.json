@@ -1,0 +1,28 @@
+{
+  "rule": "100225",
+  "title": "Windows Update staged DLLs (level 0); svchost dropping a DLL elsewhere still alerts",
+  "cases": [
+    {
+      "name": "svchost dropping DLL in System32",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe",
+            "targetFilename": "C:\\\\Windows\\\\System32\\\\evil.dll"
+          }
+        }
+      },
+      "expect": {
+        "id": "92219",
+        "level": 6
+      }
+    }
+  ]
+}

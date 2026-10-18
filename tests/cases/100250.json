@@ -1,0 +1,150 @@
+{
+  "rule": "100250",
+  "title": "Intel DSA graphics driver installer chain unpacking in Temp (level 3)",
+  "cases": [
+    {
+      "name": "DSA package unpacks a driver DLL into RarSFX0",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\igd10iumd64.dll",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100250",
+        "level": 3
+      }
+    },
+    {
+      "name": "RarSFX0 Installer.exe stages a dependency",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Installer.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\Intel\\\\GFXInstaller\\\\Installer_42013475\\\\Dependencies\\\\MainInstaller.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100250",
+        "level": 3
+      }
+    },
+    {
+      "name": "MainInstaller writes the next stage",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\Intel\\\\GFXInstaller\\\\Installer_42013475\\\\Dependencies\\\\MainInstaller.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\Intel\\\\GFXInstaller\\\\Installer_42013475\\\\Installer.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100250",
+        "level": 3
+      }
+    },
+    {
+      "name": "DSA-looking package writing outside RarSFX is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\payload.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Unknown exe writing into RarSFX0 is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Downloads\\\\gfx_win_101.7092.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\igd10iumd64.dll",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "RarSFX0 Installer.exe writing outside GFXInstaller is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Installer.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\svchost.exe",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

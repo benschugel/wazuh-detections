@@ -1,0 +1,62 @@
+{
+  "rule": "100257",
+  "title": "Mullvad VPN reading the Windows theme setting (level 0)",
+  "cases": [
+    {
+      "name": "Mullvad theme query",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /d /s /c \\\"reg query HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Themes\\\\Personalize\\\\ /v SystemUsesLightTheme\\\"",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Program Files\\\\Mullvad VPN\\\\Mullvad VPN.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "100257",
+        "level": 0
+      }
+    },
+    {
+      "name": "Mullvad running any other cmd is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /d /s /c \\\"whoami\\\"",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Program Files\\\\Mullvad VPN\\\\Mullvad VPN.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    }
+  ]
+}

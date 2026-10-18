@@ -1,0 +1,170 @@
+{
+  "rule": "100252",
+  "title": "svchost started with the parent unresolved by Sysmon (level 3)",
+  "cases": [
+    {
+      "name": "svchost with zero parent GUID and a service command line",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\svchost.exe",
+            "originalFileName": "svchost.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe -k netsvcs -p -s Winmgmt",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{00000000-0000-0000-0000-000000000000}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100252",
+        "level": 3
+      }
+    },
+    {
+      "name": "per-user svchost with zero parent GUID",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\svchost.exe",
+            "originalFileName": "svchost.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe -k UnistackSvcGroup -s WpnUserService",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{00000000-0000-0000-0000-000000000000}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100252",
+        "level": 3
+      }
+    },
+    {
+      "name": "svchost with a resolved unexpected parent is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\svchost.exe",
+            "originalFileName": "svchost.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe -k netsvcs -p -s Winmgmt",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Users\\\\user\\\\Downloads\\\\x.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "61618",
+        "level": 12
+      }
+    },
+    {
+      "name": "svchost with zero parent GUID but an odd command line is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\svchost.exe",
+            "originalFileName": "svchost.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe -k netsvcs -p -s Winmgmt http://evil.example/x",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{00000000-0000-0000-0000-000000000000}"
+          }
+        }
+      },
+      "expect": {
+        "id": "61618",
+        "level": 12
+      }
+    },
+    {
+      "name": "svchost from a user folder with zero parent GUID is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\svchost.exe",
+            "originalFileName": "svchost.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe -k netsvcs -p",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{00000000-0000-0000-0000-000000000000}"
+          }
+        }
+      },
+      "expect": {
+        "id": "61618",
+        "level": 12
+      }
+    },
+    {
+      "name": "svchost with services.exe parent still takes the stock whitelist",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\svchost.exe",
+            "originalFileName": "svchost.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\svchost.exe -k netsvcs -p",
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Windows\\\\System32\\\\services.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "61619",
+        "level": 0
+      }
+    }
+  ]
+}

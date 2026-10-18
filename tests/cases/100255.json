@@ -1,0 +1,118 @@
+{
+  "rule": "100255",
+  "title": "Discord registering its URL protocol handler (level 3)",
+  "cases": [
+    {
+      "name": "Discord registers its URL protocol",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\System32\\\\reg.exe add HKCU\\\\Software\\\\Classes\\\\Discord /ve /d \\\"URL:Discord Protocol\\\" /f",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9261\\\\Discord.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "100255",
+        "level": 3
+      }
+    },
+    {
+      "name": "Discord registers its open command",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\System32\\\\reg.exe add HKCU\\\\Software\\\\Classes\\\\Discord\\\\shell\\\\open\\\\command /ve /d \\\"\\\\\\\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9261\\\\Discord.exe\\\\\\\" --url -- \\\\\\\"%1\\\\\\\"\\\" /f",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9261\\\\Discord.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "100255",
+        "level": 3
+      }
+    },
+    {
+      "name": "Discord writing another Classes key is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\System32\\\\reg.exe add HKCU\\\\Software\\\\Classes\\\\ms-settings\\\\shell\\\\open\\\\command /ve /d \\\"cmd.exe\\\" /f",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9261\\\\Discord.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92041",
+        "level": 10
+      }
+    },
+    {
+      "name": "Discord look-alike outside AppData is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\reg.exe",
+            "originalFileName": "reg.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\System32\\\\reg.exe add HKCU\\\\Software\\\\Classes\\\\Discord /ve /d \\\"URL:Discord Protocol\\\" /f",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Users\\\\Public\\\\Discord\\\\app-1.0.9261\\\\Discord.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92041",
+        "level": 10
+      }
+    }
+  ]
+}

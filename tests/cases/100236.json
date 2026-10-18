@@ -1,0 +1,131 @@
+{
+  "rule": "100236",
+  "title": "SteelSeries GG updater polling for its own processes (level 0)",
+  "cases": [
+    {
+      "name": "SteelSeries poll for SteelSeriesGGEZ",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "originalFileName": "Cmd.Exe",
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "parentImage": "C:\\\\ProgramData\\\\SteelSeries\\\\GG\\\\updates\\\\Setup.exe",
+            "commandLine": "cmd /c tasklist /nh /fi \\\"imagename eq SteelSeriesGGEZ.exe\\\" | find /i \\\"SteelSeriesGGEZ.exe\\\""
+          }
+        }
+      },
+      "expect": {
+        "id": "100236",
+        "level": 0
+      }
+    },
+    {
+      "name": "SteelSeries poll for 3dat",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "originalFileName": "Cmd.Exe",
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "parentImage": "C:\\\\ProgramData\\\\SteelSeries\\\\GG\\\\updates\\\\Setup.exe",
+            "commandLine": "cmd /c tasklist /nh /fi \\\"imagename eq 3dat.exe\\\" | find /i \\\"3dat.exe\\\""
+          }
+        }
+      },
+      "expect": {
+        "id": "100236",
+        "level": 0
+      }
+    },
+    {
+      "name": "Poll for Defender process is NOT ignored",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "originalFileName": "Cmd.Exe",
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "parentImage": "C:\\\\ProgramData\\\\SteelSeries\\\\GG\\\\updates\\\\Setup.exe",
+            "commandLine": "cmd /c tasklist /nh /fi \\\"imagename eq MsMpEng.exe\\\" | find /i \\\"MsMpEng.exe\\\""
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    },
+    {
+      "name": "Mismatched names are NOT ignored",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "user": "NT AUTHORITY\\\\SYSTEM",
+            "originalFileName": "Cmd.Exe",
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "parentImage": "C:\\\\ProgramData\\\\SteelSeries\\\\GG\\\\updates\\\\Setup.exe",
+            "commandLine": "cmd /c tasklist /nh /fi \\\"imagename eq SteelSeriesGG.exe\\\" | find /i \\\"MsMpEng.exe\\\""
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    },
+    {
+      "name": "Same poll by a normal user is NOT ignored",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "user": "hx-101\\\\user",
+            "originalFileName": "Cmd.Exe",
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "parentImage": "C:\\\\ProgramData\\\\SteelSeries\\\\GG\\\\updates\\\\Setup.exe",
+            "commandLine": "cmd /c tasklist /nh /fi \\\"imagename eq SteelSeriesGG.exe\\\" | find /i \\\"SteelSeriesGG.exe\\\""
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    }
+  ]
+}

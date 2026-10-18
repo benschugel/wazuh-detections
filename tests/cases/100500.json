@@ -1,0 +1,1311 @@
+{
+  "rule": "100500",
+  "title": "Burst of executables dropped in Temp by one process (level 15 summary on the tenth 92213 in 120 s)",
+  "cases": [
+    {
+      "name": "same guid x14",
+      "location": "guard",
+      "events": [
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib00.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib01.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib02.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib03.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib04.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib05.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib06.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib07.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib08.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib09.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib10.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib11.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib12.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\lib13.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        }
+      ],
+      "expect_ids": [
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "100500",
+        "92213",
+        "92213",
+        "92213",
+        "92213"
+      ],
+      "summary": {
+        "rule": "100500",
+        "must_contain": "gfx_win_101.7092.exe",
+        "must_not_contain": "$("
+      }
+    },
+    {
+      "name": "two guids x7 each, no summary",
+      "location": "guard",
+      "events": [
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a00.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b00.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a01.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b01.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a02.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b02.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a03.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b03.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a04.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b04.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a05.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b05.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\a06.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\b06.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        }
+      ],
+      "expect_ids": [
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213",
+        "92213"
+      ]
+    },
+    {
+      "name": "100243 drops do not count",
+      "location": "guard",
+      "events": [
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s00.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s01.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s02.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s03.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s04.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s05.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s06.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s07.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s08.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s09.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s10.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s11.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        }
+      ],
+      "expect_ids": [
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243"
+      ]
+    },
+    {
+      "name": "mixed: nine 100243 then one 92213",
+      "location": "guard",
+      "events": [
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s00.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s01.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s02.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s03.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s04.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s05.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s06.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s07.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\bash.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-user-src\\\\ca0943f2-7867-4a45-b615-2f078920b925\\\\scratchpad\\\\s08.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\ProgramData\\\\Intel\\\\DSA\\\\Downloads\\\\gfx_win_101.7092.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\RarSFX0\\\\Graphics\\\\real.dll",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        }
+      ],
+      "expect_ids": [
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "100243",
+        "92213"
+      ]
+    },
+    {
+      "name": "uv stubs x12 -> 100203, no burst",
+      "location": "guard",
+      "events": [
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000000\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000001\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000002\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000003\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000004\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000005\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000006\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000007\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000008\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000009\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000010\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmp000011\\\\uv-trampoline-74140.exe",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\.local\\\\bin\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmpabcdef\\\\python.exe",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5c74-6ac8-9b40-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        }
+      ],
+      "expect_ids": [
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "100203",
+        "92213"
+      ]
+    }
+  ]
+}

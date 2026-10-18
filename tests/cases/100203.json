@@ -1,0 +1,136 @@
+{
+  "rule": "100203",
+  "title": "PowerShell policy probe and uv trampoline drops in Temp (level 0), scoped to their writers",
+  "cases": [
+    {
+      "name": "Exe dropped in Temp by unknown program",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\Downloads\\\\setup.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\abc\\\\payload.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "100203 writer scope",
+      "location": "guard",
+      "events": [
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\__PSScriptPolicyTest_k2xq1abc.d3f.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.PowerShell_7.6.6.0_x64__8wekyb3d8bbwe\\\\pwsh.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\__PSScriptPolicyTest_k2xq1abc.d3f.ps1",
+              "user": "hx-101\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\__PSScriptPolicyTest_k2xq1abc.d3f.ps1",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmpabcdef\\\\uv-trampoline-1.exe",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        },
+        {
+          "win": {
+            "system": {
+              "providerName": "Microsoft-Windows-Sysmon",
+              "eventID": "11",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "severityValue": "INFORMATION"
+            },
+            "eventdata": {
+              "image": "C:\\\\Users\\\\user\\\\Downloads\\\\uv.exe",
+              "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\.tmpabcdef\\\\uv-trampoline-1.exe",
+              "user": "hx-102\\\\user",
+              "processGuid": "{11111111-5a89-6ac8-843f-000000002600}",
+              "processId": "8068",
+              "ruleName": "-",
+              "utcTime": "2026-10-09 03:08:40.000"
+            }
+          }
+        }
+      ],
+      "expect_ids": [
+        "100203",
+        "100203",
+        "92213",
+        "92213",
+        "92213"
+      ]
+    }
+  ]
+}

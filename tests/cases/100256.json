@@ -1,0 +1,102 @@
+{
+  "rule": "100256",
+  "title": "Application updaters refreshing their Start Menu shortcut (level 3)",
+  "cases": [
+    {
+      "name": "Claude updater refreshes its shortcut",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\AnthropicClaude\\\\Update.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Anthropic\\\\Claude.lnk",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100256",
+        "level": 3
+      }
+    },
+    {
+      "name": "Discord refreshes its top-level shortcut",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9261\\\\Discord.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Discord.lnk",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "100256",
+        "level": 3
+      }
+    },
+    {
+      "name": "Discord writing a Startup folder shortcut is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Discord\\\\app-1.0.9261\\\\Discord.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup\\\\Discord.lnk",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92200",
+        "level": 6
+      }
+    },
+    {
+      "name": "Claude updater writing a differently named shortcut is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "11"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\AnthropicClaude\\\\Update.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Anthropic\\\\Updater.lnk",
+            "user": "hx-102\\\\user",
+            "processGuid": "{11111111-5eb6-6ac8-a900-000000002800}"
+          }
+        }
+      },
+      "expect": {
+        "id": "92200",
+        "level": 6
+      }
+    }
+  ]
+}

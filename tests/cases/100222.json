@@ -1,0 +1,206 @@
+{
+  "rule": "100222",
+  "title": "Edge and WebView2 component unpacks in Temp (level 3)",
+  "cases": [
+    {
+      "name": "Edge component unpack (alert of 2026-10-12 03:35 UTC)",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzipping1424_132176433\\\\well_known_domains.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "100222",
+        "level": 3
+      }
+    },
+    {
+      "name": "Edge unpack, nested exe",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzipping1424_132176433\\\\x\\\\setup.exe",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "100222",
+        "level": 3
+      }
+    },
+    {
+      "name": "WebView2 unpack still lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\141.0.3537.71\\\\msedgewebview2.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzipping1424_132176433\\\\well_known_domains.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "100222",
+        "level": 3
+      }
+    },
+    {
+      "name": "Edge dropping a plain DLL in Temp is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\payload.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Edge dropping into a look-alike Unpacker name is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzippingX_1\\\\a.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "msedge.exe outside Program Files is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzipping1424_132176433\\\\well_known_domains.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "msedge.exe under Program Files\\Evil prefix is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Evil\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzipping1424_132176433\\\\well_known_domains.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    },
+    {
+      "name": "Other Edge binary (msedge_proxy) is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "11",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge_proxy.exe",
+            "targetFilename": "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\msedge_chrome_Unpacker_BeginUnzipping1424_132176433\\\\well_known_domains.dll",
+            "user": "hx-102\\\\user",
+            "processId": "1424",
+            "ruleName": "DLL"
+          }
+        }
+      },
+      "expect": {
+        "id": "92213",
+        "level": 15
+      }
+    }
+  ]
+}

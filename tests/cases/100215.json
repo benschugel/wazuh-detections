@@ -1,0 +1,86 @@
+{
+  "rule": "100215",
+  "title": "Chrome launching a known native messaging host (level 0)",
+  "cases": [
+    {
+      "name": "Chrome launching an unknown native host",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "eventID": "1",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "parentImage": "C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /d /s /c \"\"C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\x\\\\host.exe\" chrome-extension://abcdefghijklmnopabcdefghijklmnop/ --parent-window=0\""
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    },
+    {
+      "name": "Chrome launches the Claude desktop native host",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /d /s /c \\\"\\\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\AnthropicClaude\\\\app-2.31226.0\\\\resources\\\\chrome-native-host.exe\\\" chrome-extension://fcoeoabgfenejglbffodgkkbkcdhcgfn/ --parent-window=0\\\" < \\\\\\\\.\\\\pipe\\\\chrome.nativeMessaging.in.7c855658bef89079 > \\\\\\\\.\\\\pipe\\\\chrome.nativeMessaging.out.7c855658bef89079",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "100215",
+        "level": 0
+      }
+    },
+    {
+      "name": "Chrome launching a native host from another folder is NOT lowered",
+      "location": "guard",
+      "event": {
+        "win": {
+          "system": {
+            "providerName": "Microsoft-Windows-Sysmon",
+            "channel": "Microsoft-Windows-Sysmon/Operational",
+            "severityValue": "INFORMATION",
+            "eventID": "1"
+          },
+          "eventdata": {
+            "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+            "originalFileName": "Cmd.Exe",
+            "commandLine": "C:\\\\WINDOWS\\\\system32\\\\cmd.exe /d /s /c \\\"\\\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chrome-native-host.exe\\\" chrome-extension://fcoeoabgfenejglbffodgkkbkcdhcgfn/\\\"",
+            "user": "hx-102\\\\user",
+            "integrityLevel": "System",
+            "processId": "1234",
+            "parentProcessGuid": "{11111111-5eb6-6ac8-a900-000000002800}",
+            "parentImage": "C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe"
+          }
+        }
+      },
+      "expect": {
+        "id": "92052",
+        "level": 4
+      }
+    }
+  ]
+}
