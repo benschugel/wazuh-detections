@@ -1,0 +1,29 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: XML well-formedness of every decoder, rule and Sysmon file
+        run: python3 tests/check_xml.py
+
+      - name: Pull the manager image
+        run: docker pull wazuh/wazuh-manager:4.14.8
+
+      # Starts a throwaway manager, applies the two stock-rule patches that
+      # wazuh-logtest needs for Windows and SCA events, loads the decoders and
+      # rules (failing if analysisd ignores any), and runs every case in
+      # tests/cases. Any rule or level mismatch fails the build.
+      - name: Load the rules and run the test cases in a throwaway manager
+        run: bash tests/harness.sh all
+
+      - name: Remove the manager
+        if: always()
+        run: bash tests/harness.sh down

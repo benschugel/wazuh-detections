@@ -113,6 +113,14 @@ alerts hold real host data; the `.gitignore` keeps them out.
 Rootcheck and FIM rules (`tuning/syscheck-rootcheck.xml`) cannot be
 replayed through logtest and are checked live.
 
+## Continuous integration
+
+`.github/workflows/test.yml` runs on every push and pull request:
+`tests/check_xml.py` (well-formedness of every decoder, rule and Sysmon
+file), then `tests/harness.sh all` in a throwaway 4.14.8 manager. A rule
+that analysisd ignores, or any case landing on a different rule or level,
+fails the build.
+
 ## Attribution
 
 `sysmon/sysmonconfig.xml` is the unmodified SwiftOnSecurity
