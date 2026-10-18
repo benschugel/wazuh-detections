@@ -71,15 +71,33 @@ detections/unifi.xml          -> /var/ossec/etc/rules/detections-unifi.xml
 tuning/windows-sysmon.xml     -> /var/ossec/etc/rules/tuning-windows-sysmon.xml
 ```
 
-Into a manager container by hand (`M` is the container name):
+`deploy.sh` does this against a running manager container:
 
 ```
-export MSYS_NO_PATHCONV=1
-for f in decoders/*.xml; do docker cp "$f" $M:/var/ossec/etc/decoders/; done
-for d in detections tuning; do for f in $d/*.xml; do docker cp "$f" $M:/var/ossec/etc/rules/$d-$(basename "$f"); done; done
-docker exec -u root $M sh -c 'chown wazuh:wazuh /var/ossec/etc/rules/*.xml /var/ossec/etc/decoders/*.xml; chmod 660 /var/ossec/etc/rules/*.xml /var/ossec/etc/decoders/*.xml'
-docker exec -u root $M /var/ossec/bin/wazuh-analysisd -t && docker exec -u root $M /var/ossec/bin/wazuh-control restart
+./deploy.sh --dry-run            # show what would change
+./deploy.sh                      # single-node-wazuh.manager-1, or $WAZUH_MANAGER
+./deploy.sh my-manager-container
 ```
+
+It backs up the container's current rules and decoders to `backups/<date>/`
+(ignored by git), removes the pre-split file names and earlier copies,
+copies the current files in, runs `wazuh-analysisd -t`, and restarts the
+manager only if the check passes and no rule would be ignored. On failure
+it puts the backup back. The deployed commit is recorded in
+`/var/ossec/etc/wazuh-detections.version` inside the container. Deploy
+from a clean checkout; the script warns and marks the version `-dirty`
+otherwise.
+
+The manager keeps its rules in the `wazuh_etc` named volume, so a deploy
+survives restarts but not `docker compose down -v` or a fresh volume: run
+`deploy.sh` again after either.
+
+Considered and parked: bind-mounting this checkout into the manager with
+`decoder_dir` and `rule_dir` entries in ossec.conf, which would remove the
+copy step. It needs the manager container recreated (the live ossec.conf
+holds edits the host copy lacks), Docker Desktop presents bind mounts as
+root-owned mode 777 files, and whatever is in the working tree is what the
+manager loads. Worth revisiting when the stack moves to a Linux host.
 
 Files that stay in homelab-docker: the manager's `ossec.conf`, the shared
 `agent.conf` (rule 100262 pairs with its `report_changes` FIM entries), the

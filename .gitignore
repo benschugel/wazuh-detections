@@ -2,6 +2,9 @@
 alerts*.json
 alerts*.json.gz
 
+# deploy.sh copies the manager's current files here before replacing them.
+backups/
+
 # Editor and interpreter leftovers
 __pycache__/
 *.pyc
